@@ -13,7 +13,7 @@ class Roulette
     @colors.each do |colors|
       @numbers.each do |numbers|
         even = ( numbers %2 == 0 ) ? 'Even' : 'Odd'
-      @result << Table.new(colors, numbers, even)
+      @result << Roulette.new(colors, numbers, even )
       end
     end
   end
@@ -22,20 +22,16 @@ class Roulette
     result = @result.sample
     numbers = result.numbers
     colors = result.colors
-    # even = result.even
-
+    
     puts numbers
     puts colors
-    # puts even 
   end
 
-  def run 
+  def run
     generate_result
     new_roll
-  end 
+  end
 end
 
 roulette = Roulette.new
 roulette.run
-
-
