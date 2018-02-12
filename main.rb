@@ -29,7 +29,6 @@ class Casino
     case choice
       when 1
         Slots.new(@player, self).play_game
-
       when 2
         Roulette.new(@player, self).play_game
       when 3
