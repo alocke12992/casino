@@ -30,13 +30,13 @@ class Slots
     @player.wallet -= @bet
     puts "your bet was #{@bet}" 
     puts "your wallet is now #{@player.wallet}"
+    binding.pry 
   end 
 
   def play_game 
     puts "first you must make a bet"
     make_bet
-    
-
+  end 
 
 end 
  
