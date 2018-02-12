@@ -24,3 +24,6 @@ class Deck
   end
 end
 
+deck = Deck.new 
+deck.shuffle_cards 
+

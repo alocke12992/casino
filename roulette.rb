@@ -1,7 +1,7 @@
 require 'pry'
 require_relative 'roulette_table'
 class Roulette
-  attr_accessor :color, :number
+  attr_accessor :colors, :numbers
 
   def initialize 
     @colors = %w(red black)
@@ -14,18 +14,28 @@ class Roulette
     @colors.each do |colors|
       @numbers.each do |numbers|
         even = ( numbers %2 == 0 ) ? 'Even' : 'Odd'
-      @result << Table.new(colors, numbers)
+      @result << Table.new(colors, numbers, even)
       end
     end
-    new_roll
-    binding.pry
   end
 
   def new_roll
-    game = @result.sample
-    puts game 
+    result = @result.sample
+    numbers = result.numbers
+    colors = result.colors
+    # even = result.even
+
+    puts numbers
+    puts colors
+    # puts even 
   end
+
+  def run 
+    generate_result
+    new_roll
+  end 
 end
 
 roulette = Roulette.new
-roulette
+roulette.run
+
