@@ -1,13 +1,20 @@
 require 'pry'
 require_relative 'roulette_table'
 class Roulette
-  attr_accessor :colors, :numbers
+  attr_accessor :colors, :numbers, :player, :casino 
 
-  def initialize
+  def initialize(player, casino)
+    @player = player 
+    @casino = casino
     @colors = %w(red black)
     @numbers = %w(1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20)
     @result = []
   end
+
+  def play_game
+    run 
+    #ADD YOUR WELCOME MENU HERE# 
+  end 
 
   def generate_result
     @colors.each do |colors|
@@ -27,11 +34,9 @@ class Roulette
     puts colors
   end
 
-  def run
+  def run  
     generate_result
     new_roll
   end
 end
 
-roulette = Roulette.new
-roulette.run

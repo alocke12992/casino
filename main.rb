@@ -1,5 +1,6 @@
 require_relative 'player'
 require_relative 'slots'
+require_relative 'roulette'
 #require_relative 'high_low'
 
 class Casino
@@ -18,8 +19,8 @@ class Casino
     puts "===DPL CASINO==="
     puts "Select a game"
     puts "1) Slots"
-    puts "2) High Low"
-    puts "3) Black Jack"
+    puts "2) Roulette"
+    puts "3) High - Low"
     puts "4) Leave Casino"
     enter_game(gets.to_i)
   end
@@ -30,9 +31,9 @@ class Casino
         Slots.new(@player, self).play_game
 
       when 2
-        puts "High Low under construction"
+        Roulette.new(@player, self).play_game
       when 3
-        puts "Black Jack under construction"
+        puts "High Low under construction"
       when 4
         puts "Goodbye"
         exit
