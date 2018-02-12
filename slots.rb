@@ -14,5 +14,6 @@ class Slots
       @casino.menu
     end
   end
-
 end
+ 
+

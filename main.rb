@@ -9,6 +9,11 @@ class Casino
     @player = Player.new
   end
 
+  def welcome_start
+    @player.welcome
+    menu
+  end 
+
   def menu
     puts "===DPL CASINO==="
     puts "Select a game"
@@ -22,7 +27,8 @@ class Casino
   def enter_game(choice)
     case choice
       when 1
-        Slot.new(@player, self)
+        Slots.new(@player, self).play_game
+
       when 2
         puts "High Low under construction"
       when 3
@@ -38,5 +44,5 @@ class Casino
 end
 
 casino = Casino.new
-casino.menu
+casino.welcome_start
 
