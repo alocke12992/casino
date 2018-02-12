@@ -3,11 +3,18 @@ require_relative 'roulette_table'
 class Roulette
   attr_accessor :colors, :numbers
 
+<<<<<<< HEAD
   def initialize
+=======
+<<<<<<< HEAD
+  def initialize 
+=======
+  def initialize
+>>>>>>> git
+>>>>>>> finish
     @colors = %w(red black)
     @numbers = %w(1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20)
     @result = []
-    generate_result
   end
 
   def generate_result
@@ -37,5 +44,9 @@ class Roulette
 end
 
 roulette = Roulette.new
+<<<<<<< HEAD
 roulette.run
 
+=======
+roulette.generate_result
+>>>>>>> finish
