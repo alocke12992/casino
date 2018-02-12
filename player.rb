@@ -6,3 +6,5 @@ class Player
     @wallet = wallet
   end
 end
+
+#lksjdgfs
