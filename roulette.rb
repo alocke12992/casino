@@ -90,9 +90,9 @@ class Roulette
     even_input = gets.to_i
     if even_input == 1 || even_input == 2
       run
-      if colors == result.colors
+      if colors == colors
         winner
-      elsif colors != result.colors
+      elsif
         loser
       end
     else
