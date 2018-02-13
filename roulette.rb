@@ -8,14 +8,14 @@ class Roulette
   def initialize(wallet, player, casino)
     @player = player
     @casino = casino
-    @wallet = wallet 
+    @wallet = wallet
     @colors = %w(Red Black)
     @numbers = %w(1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20)
     @result = []
   end
 
   def play_game
-    if @wallet != 0 
+    if @wallet != 0
       puts "You currently have $#{@wallet} left to play with.".colorize(:green)
       puts "Would you like to:\n1. Play a game?\n2. Quit"
       @casino.wallet = @wallet
@@ -27,13 +27,13 @@ class Roulette
       else
         puts "Invalid Entry"
         play_game
-      end 
-    else 
+      end
+    else
       puts "sorry, you've run out of money".colorize(:red)
       sleep(1)
       puts "goodbye"
       exit
-    end 
+    end
   end
 
   def make_choice
@@ -74,13 +74,13 @@ class Roulette
           loser.colorize(:red)
         end
     else
-        puts "Invalid Input"
+        puts "Invalid Input".colorize(:red)
         even_or_odd
     end
   end
 
   def winner
-    puts "You win!"
+    puts "You win!".colorize(:green)
     @wallet += @bet
     puts "your bet was #{@bet}"
     puts "your wallet is now #{@wallet}"
@@ -88,7 +88,7 @@ class Roulette
   end
 
   def loser
-    puts "You lose."
+    puts "You lose.".colorize(:red)
     @wallet -= @bet
     puts "your bet was #{@bet}"
     puts "your wallet is now #{@wallet}"
@@ -132,8 +132,8 @@ class Roulette
     @number = result.numbers.to_i
     @color = result.colors
 
-    puts @number
-    puts @color
+    puts "#{@number}".colorize(:cyan)
+    puts "#{@color}".colorize(:magenta)
   end
 
   def run

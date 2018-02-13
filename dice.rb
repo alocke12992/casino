@@ -13,7 +13,7 @@ end
 
 puts "How many dice?"
 @num = gets.strip.to_i
- 
+
 
 def rolling
   number = 0
