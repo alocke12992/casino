@@ -78,9 +78,10 @@ class Slots
       @user_bet = 0 
     end
     # puts "Your initial bet was: $".colorize(:green)
-    puts  "You currently have $#{@user_bet} to play with".colorize(:green)
+    puts  "You won $#{@user_bet} this round".colorize(:green)
     @wallet += @user_bet 
-    puts @wallet 
+    puts "You have $#{@wallet} left in your wallet.".colorize(:green)
+    @casino.wallet = @wallet
   play_game
   end
 
