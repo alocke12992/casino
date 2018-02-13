@@ -1,4 +1,4 @@
-require_relative 'main'
+
 
   class RockPaperScissor
     attr_accessor  :player, :casino, :wallet
@@ -15,18 +15,19 @@ require_relative 'main'
       puts "1) Press 1 to input Rock"
       puts "2) Press 2 to input Paper"
       puts "3) Press 3 to input Scissor"
-      puts "4) Press 4 to Exit"
+      puts "4) Exit to Casino"
       @user_input = gets.to_i
       if @user_input == 4
         puts "Good Bye"
-        exit!(true)
+        @casino.menu(@wallet)
       else
       computation
       end
     end
-    @options = [0, 1, 2]
+    
 
     def computation
+      @options = [0, 1, 2]
       comp_index = @options.sample
       user_index = @options[@user_input -1]
       
@@ -46,6 +47,7 @@ require_relative 'main'
             puts 'tie'
           elsif user_index == 1
             puts 'win'
+
           else 
             puts 'lose'
           end

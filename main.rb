@@ -1,6 +1,7 @@
 require_relative 'player'
 require_relative 'slots'
 require_relative 'roulette'
+require_relative 'rock_paper_scissors'
 #require_relative 'high_low'
 
 class Casino
@@ -29,8 +30,9 @@ class Casino
       puts "Select a game"
       puts "1) Slots"
       puts "2) Roulette"
-      puts "3) High - Low"
-      puts "4) Leave Casino"
+      puts "3) Rock Paper Scissors"
+      puts "4) High - Low"
+      puts "5) Leave Casino"
       enter_game = gets.to_i
     
       case enter_game 
@@ -41,8 +43,10 @@ class Casino
           Roulette.new(@wallet, @player, self).play_game
     
         when 3
-          puts "High Low under construction"
+          RockPaperScissor.new(@wallet, @player, self).play_game
         when 4
+          puts "High Low under construction"
+        when 5
           puts "Goodbye"
           exit
         else
