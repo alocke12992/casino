@@ -2,7 +2,7 @@ require_relative 'player'
 require_relative 'slots'
 require_relative 'roulette'
 require_relative 'rock_paper_scissors'
-#require_relative 'high_low'
+require_relative 'high_low'
 
 class Casino
   attr_accessor :player, :wallet 
@@ -45,7 +45,7 @@ class Casino
         when 3
           RockPaperScissor.new(@wallet, @player, self).play_game
         when 4
-          puts "High Low under construction"
+          Highlow.new(@wallet, @player, self).play_game
         when 5
           puts "Goodbye"
           exit

@@ -17,12 +17,13 @@ class Roulette
   def play_game
     if @wallet != 0
       puts "You currently have $#{@wallet} left to play with.".colorize(:green)
-      puts "Would you like to:\n1. Play a game?\n2. Quit"
+      puts "Would you like to:\n1. Play a game?\n2. Exit to Casino"
       @casino.wallet = @wallet
       choice = gets.to_i
       if choice == 1
         make_bet
       elsif choice == 2
+        puts "Thanks for playing Roulette! Come again soon!"
         @casino.menu(@wallet)
       else
         puts "Invalid Entry"
