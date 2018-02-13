@@ -42,7 +42,7 @@ IMAGE
         @casino.menu(@wallet)
       else
         puts "Invalid Entry"
-          welcome
+          place_bet
       end
     else
       puts "sorry, you've run out of money".colorize(:red)
@@ -79,8 +79,8 @@ IMAGE
         sleep(1)
         puts message
         sleep(1)
-        print" ⭐️ " * 10 
-        print "\nYou guessed right! You win $#{@bet*2}!".colorize(:green)
+        puts" ⭐️ " * 10
+        puts "\nYou guessed right! You win $#{@bet*2}!".colorize(:green)
         puts " ⭐️ " * 10
         sleep(1)
         @win = true
