@@ -38,7 +38,8 @@ class Casino
           Slots.new(@wallet, @player, self).play_game
 
         when 2
-          Roulette.new(@player, self).play_game
+          Roulette.new(@wallet, @player, self).play_game
+    
         when 3
           puts "High Low under construction"
         when 4
