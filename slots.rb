@@ -62,7 +62,7 @@ class Slots
         @i += 1
     end 
         prize(@user_bet) 
-    end  
+    end    
 
   def prize(bet) 
     if @a == @b || @a == @c || @b == @c 

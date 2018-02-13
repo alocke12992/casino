@@ -16,7 +16,7 @@ class Casino
     wallet
     menu(@wallet)
   end 
-  
+   
   def wallet 
     @wallet = 0 
     @wallet += @player.wallet

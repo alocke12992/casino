@@ -13,7 +13,7 @@ end
 
 puts "How many dice?"
 @num = gets.strip.to_i
-
+ 
 
 def rolling
   number = 0
@@ -24,7 +24,7 @@ def rolling
 
     number += 1
   end
-  # @total.join(' ')
+  @total.join(' ')
 end
 
 puts

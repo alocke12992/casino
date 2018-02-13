@@ -17,3 +17,8 @@ class Player
     puts "#{@name}, you have #{@wallet} in your wallet."
   end
 end
+
+ 
+
+
+
