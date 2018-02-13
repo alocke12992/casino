@@ -37,8 +37,14 @@ class Casino
 °°°°°°°°°°   °°°°°        °°°°°°°°°°°      °°°°°°°°°   °°°°°°°° °°°°°°  °°°°° °°°° °°°°°  °°°°°°  
                                                                                                                                
 IMAGE
+      sleep(1)
       puts image.colorize(:red)
-      puts "you currently have $#{@wallet} in your wallet"
+      puts "Current Wallet:"
+        if @wallet >= 100 
+          puts "$#{@wallet}".colorize(:green)
+        else 
+          puts "$#{@wallet}".colorize(:yellow)
+        end 
       puts "Select a game"
       puts "1) Slots"
       puts "2) Roulette"

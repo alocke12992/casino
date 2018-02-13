@@ -70,32 +70,41 @@ IMAGE
       guess = gets.strip
       message = "The second number was: #{@second_number}".light_yellow
       if @second_number == @number
-        sleep 1
+        sleep(1)
+        puts message
+        sleep(1)
         puts "\nThe nubers were the same, we are tied."
-        puts message
+        sleep(1)
       elsif ((@second_number > @number) && (guess.include? 'hi'))||((@second_number < @number) && (guess.include? 'lo'))
-        sleep 1
-        puts "\nYou guest right! You win $#{@bet*2}!".green
+        sleep(1)
         puts message
+        sleep(1)
+        print" ⭐️ " * 10 
+        print "\nYou guest right! You win $#{@bet*2}!".colorize(:green)
+        puts " ⭐️ " * 10
+        sleep(1)
         @win = true
         @wallet = @new +(@bet*2)
       elsif ((@second_number > @number) && (guess.include? 'lo'))||((@second_number < @number) && (guess.include? 'hi'))
-        sleep 1
-        puts "\nYou lose".red
+        sleep(1)
         puts message
+        sleep(1)
+        puts "\nYou lose".colorize(:red)
+        sleep(1)
+        
         @win = false
         @wallet -= @bet
       elsif (guess.include? 'quit')||(guess.include? 'exit')||(guess.include? 'done')
         # continue = false
-        puts "\nYou walk away with $#{@new} in your pocket".light_magenta
-        exit(0)
+        puts "\nYou walk away with $#{@new} in your pocket".colorize(:light_magenta)
+        @casino.menu(@wallet)
       else
-        puts "\nInvalid input, try again".light_red
+        puts "\nInvalid input, try again".colorize(:light_red)
         @new += @bet
         analyze
-      end
-      puts @stars.blue
-      welcome
+      end 
+      sleep(1)
+      play_game 
     end
   end
 end 

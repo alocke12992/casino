@@ -27,6 +27,10 @@ require 'colorize'
 
 IMAGE
       puts image 
+      welcome 
+    end 
+    def welcome 
+      puts "your wallet is $#{@wallet}".colorize(:cyan)
       puts "Welcome to Rock, Paper, Scissor"
       puts "1) Play Game"
       puts "2) Exit to casino"
@@ -56,7 +60,6 @@ IMAGE
       @user_bet = user_bet 
       @wallet -= @user_bet
       puts "your bet was $#{@user_bet}".colorize(:cyan)
-      puts "your wallet is now $#{@wallet}".colorize(:cyan)
       start 
     end 
 
@@ -72,41 +75,49 @@ IMAGE
           if user_index == 0
             sleep(1)
             puts 'it is a tie'.colorize(:yellow)
+            sleep(1)
           elsif user_index == 1
             sleep(1)
-            puts 'win'
-
+            puts 'You win!'.colorize(:green)
+            sleep(1)
           else 
-             sleep(1)
-            puts 'you lose'
+            sleep(1)
+            puts 'Sorry, you lose.'.colorize(:red)
+            sleep(1)
           end
         when 1
-           sleep(1)
+          sleep(1)
           puts "the computer went with paper"
           if user_index == 1
              sleep(1)
-            puts 'tie'
+            puts 'it is a tie'.colorize(:yellow)
+            sleep(1)
           elsif user_index == 2
              sleep(1)
-            puts "win"
+            puts 'You win!'.colorize(:green)
+            sleep(1)
           else
-             sleep(1)
-            puts 'lose'
+            sleep(1)
+            puts 'Sorry, you lose.'.colorize(:red)
+            sleep(1)
           end
         when 2
-           sleep(1)
+          sleep(1)
           puts "the computer went with scissor"
           if user_index == 2
-             sleep(1)
-            puts 'tie'
+            sleep(1)
+            puts 'it is a tie'.colorize(:yellow)
+            sleep(1)
           elsif user_index == 0
-             sleep(1)
-           puts 'win'
+            sleep(1)
+            puts 'You win!'.colorize(:green)
+            sleep(1)
           else
-             sleep(1)
-            puts 'lose'
+            sleep(1)
+            puts 'Sorry, you lose.'.colorize(:red)
+            sleep(1)
         end 
       end
-    play_game 
+    welcome 
   end
 end 
