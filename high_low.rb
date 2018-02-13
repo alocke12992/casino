@@ -8,26 +8,26 @@ attr_accessor  :player, :casino, :wallet
   def initialize(wallet, player, casino)
     @player = player
     @casino = casino
-    @wallet = wallet 
+    @wallet = wallet
   end
 
 
-  def play_game 
+  def play_game
     image = <<IMAGE
 
- ÛÛÛÛÛ   ÛÛÛÛÛ  ÛÛÛ           ÛÛÛÛÛ                       ÛÛÛÛÛ                               
-°°ÛÛÛ   °°ÛÛÛ  °°°           °°ÛÛÛ                       °°ÛÛÛ                                
+ ÛÛÛÛÛ   ÛÛÛÛÛ  ÛÛÛ           ÛÛÛÛÛ                       ÛÛÛÛÛ
+°°ÛÛÛ   °°ÛÛÛ  °°°           °°ÛÛÛ                       °°ÛÛÛ
  °ÛÛÛ    °ÛÛÛ  ÛÛÛÛ   ÛÛÛÛÛÛÛ °ÛÛÛÛÛÛÛ                    °ÛÛÛ         ÛÛÛÛÛÛ  ÛÛÛÛÛ ÛÛÛ ÛÛÛÛÛ
- °ÛÛÛÛÛÛÛÛÛÛÛ °°ÛÛÛ  ÛÛÛ°°ÛÛÛ °ÛÛÛ°°ÛÛÛ     ÛÛÛÛÛÛÛÛÛÛ    °ÛÛÛ        ÛÛÛ°°ÛÛÛ°°ÛÛÛ °ÛÛÛ°°ÛÛÛ 
- °ÛÛÛ°°°°°ÛÛÛ  °ÛÛÛ °ÛÛÛ °ÛÛÛ °ÛÛÛ °ÛÛÛ    °°°°°°°°°°     °ÛÛÛ       °ÛÛÛ °ÛÛÛ °ÛÛÛ °ÛÛÛ °ÛÛÛ 
- °ÛÛÛ    °ÛÛÛ  °ÛÛÛ °ÛÛÛ °ÛÛÛ °ÛÛÛ °ÛÛÛ                   °ÛÛÛ      Û°ÛÛÛ °ÛÛÛ °°ÛÛÛÛÛÛÛÛÛÛÛ  
- ÛÛÛÛÛ   ÛÛÛÛÛ ÛÛÛÛÛ°°ÛÛÛÛÛÛÛ ÛÛÛÛ ÛÛÛÛÛ                  ÛÛÛÛÛÛÛÛÛÛÛ°°ÛÛÛÛÛÛ   °°ÛÛÛÛ°ÛÛÛÛ   
-°°°°°   °°°°° °°°°°  °°°°°ÛÛÛ°°°° °°°°°                  °°°°°°°°°°°  °°°°°°     °°°° °°°°    
-                     ÛÛÛ °ÛÛÛ                                                                 
-                    °°ÛÛÛÛÛÛ                                                                  
-                     °°°°°°                                                                   
+ °ÛÛÛÛÛÛÛÛÛÛÛ °°ÛÛÛ  ÛÛÛ°°ÛÛÛ °ÛÛÛ°°ÛÛÛ     ÛÛÛÛÛÛÛÛÛÛ    °ÛÛÛ        ÛÛÛ°°ÛÛÛ°°ÛÛÛ °ÛÛÛ°°ÛÛÛ
+ °ÛÛÛ°°°°°ÛÛÛ  °ÛÛÛ °ÛÛÛ °ÛÛÛ °ÛÛÛ °ÛÛÛ    °°°°°°°°°°     °ÛÛÛ       °ÛÛÛ °ÛÛÛ °ÛÛÛ °ÛÛÛ °ÛÛÛ
+ °ÛÛÛ    °ÛÛÛ  °ÛÛÛ °ÛÛÛ °ÛÛÛ °ÛÛÛ °ÛÛÛ                   °ÛÛÛ      Û°ÛÛÛ °ÛÛÛ °°ÛÛÛÛÛÛÛÛÛÛÛ
+ ÛÛÛÛÛ   ÛÛÛÛÛ ÛÛÛÛÛ°°ÛÛÛÛÛÛÛ ÛÛÛÛ ÛÛÛÛÛ                  ÛÛÛÛÛÛÛÛÛÛÛ°°ÛÛÛÛÛÛ   °°ÛÛÛÛ°ÛÛÛÛ
+°°°°°   °°°°° °°°°°  °°°°°ÛÛÛ°°°° °°°°°                  °°°°°°°°°°°  °°°°°°     °°°° °°°°
+                     ÛÛÛ °ÛÛÛ
+                    °°ÛÛÛÛÛÛ
+                     °°°°°°
 IMAGE
-    puts image 
+    puts image
     puts "\n\nWelcome to High Low\nThe number min is 1 and max is 100\n\n".light_magenta
     if @wallet != 0
       puts "You currently have $#{@wallet} left to play with.".colorize(:green)
@@ -35,7 +35,7 @@ IMAGE
       @casino.wallet = @wallet
       choice = gets.to_i
       if choice == 1
-        place_bet 
+        place_bet
       elsif choice == 2
         puts "Thanks for playing High-Low! Come again soon!"
         sleep(1)
@@ -80,7 +80,7 @@ IMAGE
         puts message
         sleep(1)
         print" ⭐️ " * 10 
-        print "\nYou guest right! You win $#{@bet*2}!".colorize(:green)
+        print "\nYou guessed right! You win $#{@bet*2}!".colorize(:green)
         puts " ⭐️ " * 10
         sleep(1)
         @win = true
@@ -91,7 +91,7 @@ IMAGE
         sleep(1)
         puts "\nYou lose".colorize(:red)
         sleep(1)
-        
+
         @win = false
         @wallet -= @bet
       elsif (guess.include? 'quit')||(guess.include? 'exit')||(guess.include? 'done')
@@ -102,10 +102,9 @@ IMAGE
         puts "\nInvalid input, try again".colorize(:light_red)
         @new += @bet
         analyze
-      end 
+      end
       sleep(1)
-      play_game 
+      play_game
     end
   end
-end 
-
+end
