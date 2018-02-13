@@ -15,5 +15,5 @@ class Player
     puts "how much is in your wallet?"
     @wallet = gets.strip.to_i
     puts "#{@name}, you have #{@wallet} in your wallet."
-  end 
+  end
 end
