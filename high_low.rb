@@ -13,19 +13,22 @@ attr_accessor  :player, :casino, :wallet
 
 
   def play_game 
-    @stars = "*"*60
-    line = "_"*60
-    fat_line = "#"*60
-    puts `clear`
-    puts "\n\n"
-    puts line.green
-    puts fat_line.magenta
-    puts @stars.blue
-    puts "\n\nWelcome to High Low\nThe number min is 1 and max is 100\n\n".light_magenta
-    welcome
-  end 
+    image = <<IMAGE
 
-  def welcome 
+ ÛÛÛÛÛ   ÛÛÛÛÛ  ÛÛÛ           ÛÛÛÛÛ                       ÛÛÛÛÛ                               
+°°ÛÛÛ   °°ÛÛÛ  °°°           °°ÛÛÛ                       °°ÛÛÛ                                
+ °ÛÛÛ    °ÛÛÛ  ÛÛÛÛ   ÛÛÛÛÛÛÛ °ÛÛÛÛÛÛÛ                    °ÛÛÛ         ÛÛÛÛÛÛ  ÛÛÛÛÛ ÛÛÛ ÛÛÛÛÛ
+ °ÛÛÛÛÛÛÛÛÛÛÛ °°ÛÛÛ  ÛÛÛ°°ÛÛÛ °ÛÛÛ°°ÛÛÛ     ÛÛÛÛÛÛÛÛÛÛ    °ÛÛÛ        ÛÛÛ°°ÛÛÛ°°ÛÛÛ °ÛÛÛ°°ÛÛÛ 
+ °ÛÛÛ°°°°°ÛÛÛ  °ÛÛÛ °ÛÛÛ °ÛÛÛ °ÛÛÛ °ÛÛÛ    °°°°°°°°°°     °ÛÛÛ       °ÛÛÛ °ÛÛÛ °ÛÛÛ °ÛÛÛ °ÛÛÛ 
+ °ÛÛÛ    °ÛÛÛ  °ÛÛÛ °ÛÛÛ °ÛÛÛ °ÛÛÛ °ÛÛÛ                   °ÛÛÛ      Û°ÛÛÛ °ÛÛÛ °°ÛÛÛÛÛÛÛÛÛÛÛ  
+ ÛÛÛÛÛ   ÛÛÛÛÛ ÛÛÛÛÛ°°ÛÛÛÛÛÛÛ ÛÛÛÛ ÛÛÛÛÛ                  ÛÛÛÛÛÛÛÛÛÛÛ°°ÛÛÛÛÛÛ   °°ÛÛÛÛ°ÛÛÛÛ   
+°°°°°   °°°°° °°°°°  °°°°°ÛÛÛ°°°° °°°°°                  °°°°°°°°°°°  °°°°°°     °°°° °°°°    
+                     ÛÛÛ °ÛÛÛ                                                                 
+                    °°ÛÛÛÛÛÛ                                                                  
+                     °°°°°°                                                                   
+IMAGE
+    puts image 
+    puts "\n\nWelcome to High Low\nThe number min is 1 and max is 100\n\n".light_magenta
     if @wallet != 0
       puts "You currently have $#{@wallet} left to play with.".colorize(:green)
       puts "Would you like to:\n1. Play a game?\n2. Exit to Casino"
