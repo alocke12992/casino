@@ -51,14 +51,14 @@ class Roulette
     even_input = gets.to_i
     if even_input == 1
     run
-      if numbers == 'Even'
+      if @number % 2 === 0
         winner
       else
         loser
       end
     elsif even_input == 2
       run
-        if numbers != 'Even'
+        if @number % 2 === 1
           winner
         else
           loser
@@ -88,13 +88,20 @@ class Roulette
   def color
     puts "Would you like to bet on\n1. Black\n2. Red"
     even_input = gets.to_i
-    if even_input == 1 || even_input == 2
+    if even_input == 1
       run
-      if colors == colors
+      if @color == 'Black'
         winner
-      elsif
+      else
         loser
       end
+    elsif even_input == 2
+      run
+        if @color == 'Red'
+          winner
+        else
+          loser
+        end
     else
       puts 'Invalid Input'
       color
@@ -112,11 +119,11 @@ class Roulette
 
   def new_roll
     result = @result.sample
-    numbers = result.numbers
-    colors = result.colors
+    @number = result.numbers.to_i
+    @color = result.colors
 
-    puts numbers
-    puts colors
+    puts @number
+    puts @color
   end
 
   def run
