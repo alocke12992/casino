@@ -8,15 +8,12 @@ class Player
     @wallet = wallet
   end
 
-  def welcome 
+  def welcome
     puts "welcome"
     puts "What is your name?"
     @name = gets.strip
     puts "how much is in your wallet?"
-    @wallet = gets.strip.to_i 
+    @wallet = gets.strip.to_i
     puts "#{@name}, you have #{@wallet} in your wallet."
   end 
 end
-
-
-
