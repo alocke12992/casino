@@ -4,31 +4,37 @@ require_relative 'roulette'
 #require_relative 'high_low'
 
 class Casino
-  attr_reader :player
+  attr_accessor :player, :wallet 
 
   def initialize
     @player = Player.new
+
   end
 
   def welcome_start
-    @player.welcome
-    menu
+    @player.welcome 
+    @wallet = @player.wallet
+    menu(@wallet)
+  end 
+  
+  def main_wallet 
+    
   end 
 
-  def menu
+  def menu(wallet)
     puts "===DPL CASINO==="
+    puts "you currently have $#{@wallet} in your wallet"
     puts "Select a game"
     puts "1) Slots"
     puts "2) Roulette"
     puts "3) High - Low"
     puts "4) Leave Casino"
-    enter_game(gets.to_i)
-  end
-
-  def enter_game(choice)
-    case choice
+    enter_game = gets.to_i
+  
+    case enter_game 
       when 1
-        Slots.new(@player, self).play_game
+        Slots.new(@wallet, @player, self).play_game
+
       when 2
         Roulette.new(@player, self).play_game
       when 3
@@ -41,7 +47,7 @@ class Casino
         menu
     end
   end
-end
+end 
 
 casino = Casino.new
 casino.welcome_start

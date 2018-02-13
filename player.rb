@@ -16,6 +16,7 @@ class Player
     @wallet = gets.strip.to_i 
     puts "#{@name}, you have #{@wallet} in your wallet."
   end 
+
 end
 
 

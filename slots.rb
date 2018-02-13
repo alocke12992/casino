@@ -3,12 +3,12 @@ require 'pry'
 require 'colorize'
 
 class Slots
-  attr_reader :player, :casino
+  attr_reader :player, :casino, :wallet
 
-  def initialize(player, casino)
+  def initialize(wallet, player, casino)
     @player = player
     @casino = casino
-
+    @wallet = wallet 
   end
 
 
@@ -19,7 +19,8 @@ class Slots
     if choice == 1
       welcome 
     elsif choice == 2
-      @casino.menu
+
+      @casino.menu(@wallet)
     else 
       puts "invlaid input, try again"
       play_game
@@ -35,9 +36,9 @@ class Slots
     puts "What would you like to bet?"
     user_bet = gets.strip.to_i 
     @user_bet = user_bet 
-    @player.wallet -= @user_bet
+    @wallet -= @user_bet
     puts "your bet was #{@user_bet}" 
-    puts "your wallet is now #{@player.wallet}"
+    puts "your wallet is now #{@wallet}"
     run_slots
   end 
 
@@ -78,6 +79,8 @@ class Slots
     end
     # puts "Your initial bet was: $".colorize(:green)
     puts  "You currently have $#{@user_bet} to play with".colorize(:green)
+    @wallet += @user_bet 
+    puts @wallet 
   play_game
   end
 
