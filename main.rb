@@ -13,39 +13,45 @@ class Casino
 
   def welcome_start
     @player.welcome 
-    @wallet = @player.wallet
+    wallet
     menu(@wallet)
   end 
   
-  def main_wallet 
-    
+  def wallet 
+    @wallet = 0 
+    @wallet += @player.wallet
   end 
 
-  def menu(wallet)
-    puts "===DPL CASINO==="
-    puts "you currently have $#{@wallet} in your wallet"
-    puts "Select a game"
-    puts "1) Slots"
-    puts "2) Roulette"
-    puts "3) High - Low"
-    puts "4) Leave Casino"
-    enter_game = gets.to_i
-  
-    case enter_game 
-      when 1
-        Slots.new(@wallet, @player, self).play_game
+  def menu(wallet) 
+    if @wallet > 0
+      puts "===DPL CASINO==="
+      puts "you currently have $#{@wallet} in your wallet"
+      puts "Select a game"
+      puts "1) Slots"
+      puts "2) Roulette"
+      puts "3) High - Low"
+      puts "4) Leave Casino"
+      enter_game = gets.to_i
+    
+      case enter_game 
+        when 1
+          Slots.new(@wallet, @player, self).play_game
 
-      when 2
-        Roulette.new(@player, self).play_game
-      when 3
-        puts "High Low under construction"
-      when 4
-        puts "Goodbye"
-        exit
-      else
-        puts "Invalid Choice"
-        menu
-    end
+        when 2
+          Roulette.new(@player, self).play_game
+        when 3
+          puts "High Low under construction"
+        when 4
+          puts "Goodbye"
+          exit
+        else
+          puts "Invalid Choice"
+          menu
+      end
+    else 
+      puts "Sorry, you've run out of money, come again soon."
+      exit 
+    end 
   end
 end 
 
